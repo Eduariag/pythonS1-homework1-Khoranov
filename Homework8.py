@@ -1,7 +1,20 @@
 #Дополнить телефонный справочник возможностью изменения и удаления данных. 
 #Пользователь также может ввести имя или фамилию, и
 # Вы должны реализовать функционал для изменения и удаления данных
-
+def show_data():
+    with open('data.txt', 'r', encoding='utf-8') as file:
+        book = file.read()
+    return book
+def new_data():
+    with open('data.txt', 'a', encoding='utf-8') as file:
+        file.write(input('Input new row: '+ '\n') )
+def find_data():
+    with open('data.txt', 'r', encoding='utf-8') as file:
+        book = file.read().split('\n')
+        temp = input('what are we looking for?: ')
+        for i in book:
+            if temp in i:
+                print(i)
 def delete_person(name):
     persons = read_data()
     with open("data.txt", "w", encoding="utf8" ) as file:
